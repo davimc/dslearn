@@ -3,6 +3,8 @@ package com.devsuperior.dslearnbds.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +18,9 @@ public class Offer implements Serializable {
     private String edition;
     private Instant startMoment;
     private Instant endMoment;
+
+    @OneToMany(mappedBy = "offer")
+    private List<Resource> resources = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "course_id")
