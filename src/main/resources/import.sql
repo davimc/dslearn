@@ -12,3 +12,5 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
+
+INSERT INTO tb_course (name, img_uri, img_gray_uri) VALUES ('Curso HTML','https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png','https://mir-s3-cdn-cf.behance.net/project_modules/disp/816f5d7636141.560aef70c492f.jpg');
