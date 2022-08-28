@@ -24,5 +24,9 @@ INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Segund
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Terceiro feedback: favor revisar', TIMESTAMP WITH TIME ZONE '2020-12-14T13:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
 
 INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Trilha inicial', 'inicie aqui', 1, 'https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png', 1, 1)
-INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id, external_Link) VALUES ('Aula ao vivo', 'continue aqui', 2, 'https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png', 2, 1, 'youtube.com/astU2wgMSa')
-INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Desafio', 'finalize aqui', 3, 'https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png', 0, 1)
+INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id, external_Link) VALUES ('Trilha intermediaria', 'continue aqui', 2, 'https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png', 2, 1, 'youtube.com/astU2wgMSa')
+INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Trilha final', 'finalize aqui', 3, 'https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png', 0, 1)
+
+INSERT INTO tb_section (title, description, position, img_uri, prerequisite_id, resource_id) VALUES ('Visão geral', 'o que irá aprender', 1, 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/816f5d7636141.560aef70c492f.jpg', null, 1)
+INSERT INTO tb_section (title, description, position, img_uri, prerequisite_id, resource_id) VALUES ('Aula ao vivo', 'tirando dúvidas', 2, 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/816f5d7636141.560aef70c492f.jpg', 1, 1)
+INSERT INTO tb_section (title, description, position, img_uri, prerequisite_id, resource_id) VALUES ('Desafio do capítulo', 'implemente o que foi aprendido', 3, 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/816f5d7636141.560aef70c492f.jpg', 1, 1)
