@@ -33,3 +33,18 @@ INSERT INTO tb_section (title, description, position, img_uri, prerequisite_id, 
 
 INSERT INTO tb_enrollment (user_id, offer_id,enroll_Moment, refund_Moment, avaible, update_Only) VALUES (1,1,TIMESTAMP WITH TIME ZONE '2020-07-14T03:00:00Z', null, true, false)
 INSERT INTO tb_enrollment (user_id, offer_id,enroll_Moment, refund_Moment, avaible, update_Only) VALUES (2,1,TIMESTAMP WITH TIME ZONE '2020-07-14T03:00:00Z', null, true, false)
+
+INSERT INTO tb_lesson(title, position, section_id) values ('Aula 1 do capítulo 1', 1, 1);
+INSERT INTO tb_content(text_content, video_uri, id) values('Material de apoio: Lorem Ipsun', 'youtube.com.br/ast$32ff', 1);
+
+INSERT INTO tb_lesson(title, position, section_id) values ('Aula 2 do capítulo 1', 2, 1);
+INSERT INTO tb_content(text_content, video_uri, id) values('', 'youtube.com.br/ast$32ff', 2);
+
+INSERT INTO tb_lesson(title, position, section_id) values ('Aula 3 do capítulo 1', 3, 1);
+INSERT INTO tb_content(text_content, video_uri, id) values('', 'youtube.com.br/ast$32ff', 3);
+
+INSERT INTO tb_lesson(title, position, section_id) values ('Tarefa do capítulo 1', 4, 1);
+INSERT INTO tb_task(id, description, question_Count, approval_count, weight, due_date) values(4, 'Fazer um bom trabalho', 12, 9, 0.8, TIMESTAMP WITH TIME ZONE '2020-12-14T13:00:00Z');
+
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (1,1,1);
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (2,1,1);
