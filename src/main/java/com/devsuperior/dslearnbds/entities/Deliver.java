@@ -16,6 +16,7 @@ public class Deliver implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String uri;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
     private DeliverStatus  status;
     private String feedback;
