@@ -36,72 +36,15 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository repository;
     @Autowired
-    private RoleRepository roleRepository;
+    private AuthService authService;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Transactional(readOnly = true)
-    public List<UserDTO> findAll() {
-        List<UserDTO> obj = repository.findAll().stream()
-                .map(UserDTO::new)
-                .collect(Collectors.toList());
-        return obj;
-    }
-    @Transactional(readOnly = true)
-    public Page<UserDTO> findAllPaged(Pageable pageable) {
-        Page<User> list = repository.findAll(pageable);
-        return list.map(UserDTO::new);
-    }
     @Transactional(readOnly = true)
     public UserDTO findById(Long id) {
+        authService.validateSelfOrAdmin(id);
+
         Optional<User> obj = repository.findById(id);
 
         return new UserDTO(obj.orElseThrow(() -> new ObjectNotFoundException(id, User.class)));
-    }
-
-    @Transactional
-    public UserDTO insert(UserInsertDTO dto) {
-        User obj = new User();
-        copyDtoToEntity(dto,obj);
-        obj.setPassword(bCryptPasswordEncoder.encode(dto.getPassword()));
-        obj = repository.save(obj);
-
-        return new UserDTO(obj);
-    }
-
-    @Transactional
-    public UserDTO update(Long id, UserUpdateDTO dto) {
-        try {
-            User obj = repository.getOne(id);
-            copyDtoToEntity(dto,obj);
-            obj = repository.save(obj);
-            return new UserDTO(obj);
-        } catch (EntityNotFoundException e) {
-            throw new ObjectNotFoundException(id, User.class);
-        }
-    }
-
-    public void delete(Long id) {
-        try {
-            repository.deleteById(id);
-        }catch (EmptyResultDataAccessException e) {
-            throw new ObjectNotFoundException(id, User.class);
-        }catch (DataIntegrityViolationException e) {
-            throw new DatabaseException("Integrity violation");
-        }
-    }
-
-
-    private void copyDtoToEntity(UserDTO dto, User obj) {
-        obj.setName(dto.getName());
-        obj.setEmail(dto.getEmail());
-
-        obj.getRoles().clear();
-        for (RoleDTO roleDTO : dto.getRoles()) {
-            Role role = roleRepository.getOne(roleDTO.getId());
-            obj.getRoles().add(role);
-        }
     }
 
     @Override

@@ -3,7 +3,9 @@ package com.devsuperior.dslearnbds.resources.exceptions;
 import javax.servlet.http.HttpServletRequest;
 
 import com.devsuperior.dslearnbds.services.exceptions.DatabaseException;
+import com.devsuperior.dslearnbds.services.exceptions.ForbiddenException;
 import com.devsuperior.dslearnbds.services.exceptions.ObjectNotFoundException;
+import com.devsuperior.dslearnbds.services.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -54,5 +56,17 @@ public class ResourceExceptionHandler {
                 .forEach(f -> err.addError(f.getField(),f.getDefaultMessage()));
 
         return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<OAuthError> forbidden(ForbiddenException e, HttpServletRequest request){
+        OAuthError err = new OAuthError("Forbidden",  e.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<OAuthError> unauthorized(UnauthorizedException e, HttpServletRequest request){
+        OAuthError err = new OAuthError("Unauthorized",  e.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(err);
     }
 }

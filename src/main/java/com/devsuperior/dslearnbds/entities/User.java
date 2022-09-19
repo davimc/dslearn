@@ -122,4 +122,11 @@ public class User implements UserDetails, Serializable {
     public boolean isEnabled() {
         return true;
     }
+
+    public boolean hasRole(String role) {
+        boolean result = roles.stream().anyMatch(r -> {
+            return r.getAuthority().equals(role);
+        });
+        return result;
+    }
 }
