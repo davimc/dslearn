@@ -17,8 +17,9 @@ public class UserInsertDTO extends UserDTO {
     @NotBlank(message="Campo requerido")
     private String password;
 
-    public UserInsertDTO(Long id, String firstName, String lastName, String email, String password) {
-        super(id, firstName, lastName, email);
+    public UserInsertDTO(Long id, String firstName
+            , String email, String password) {
+        super(id, firstName, email);
         this.password = password;
     }
 

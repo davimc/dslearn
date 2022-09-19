@@ -16,9 +16,6 @@ public class UserDTO implements Serializable {
     @Size(min=3, max=60, message="Deve ter entre 5 e 60 caracteres")
     @NotBlank(message="Campo requerido")
     private String name;
-    @Size(min=3, max=60, message="Deve ter entre 5 e 60 caracteres")
-    @NotBlank(message="Campo requerido")
-    private String lastName;
     @Email(message = "Favor entrar um e-mail válido")
     private String email;
     private Set<RoleDTO> roles = new HashSet<>();
@@ -26,10 +23,9 @@ public class UserDTO implements Serializable {
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String firstName, String lastName, String email) {
+    public UserDTO(Long id, String firstName, String email) {
         this.id = id;
         this.name = firstName;
-        this.lastName = lastName;
         this.email = email;
     }
 
@@ -54,14 +50,6 @@ public class UserDTO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
