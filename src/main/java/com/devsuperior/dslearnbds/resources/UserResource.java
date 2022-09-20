@@ -1,4 +1,4 @@
-package com.devsuperior.dslearnbds.resources.exceptions;
+package com.devsuperior.dslearnbds.resources;
 
 import com.devsuperior.dslearnbds.DTO.UserDTO;
 import com.devsuperior.dslearnbds.services.UserService;
