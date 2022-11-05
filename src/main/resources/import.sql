@@ -21,7 +21,7 @@ INSERT INTO tb_offer (edition, start_moment, end_moment,course_id) VALUES ('2.1'
 
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Primeiro feedback de tarefa: favor revisar', TIMESTAMP WITH TIME ZONE '2020-12-10T13:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Segundo feedback: favor revisar', TIMESTAMP WITH TIME ZONE '2020-12-12T13:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
-INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Terceiro feedback: favor revisar', TIMESTAMP WITH TIME ZONE '2020-12-14T13:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Terceiro feedback: favor revisar', TIMESTAMP WITH TIME ZONE '2020-12-14T13:00:00Z', false, '/offers/1/resource/1/sections/1', 1);
 
 INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Trilha inicial', 'inicie aqui', 1, 'https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png', 1, 1)
 INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id, external_Link) VALUES ('Trilha intermediaria', 'continue aqui', 2, 'https://cdn.pixabay.com/photo/2021/03/18/17/09/teacher-6105336_960_720.png', 2, 1, 'youtube.com/astU2wgMSa')
